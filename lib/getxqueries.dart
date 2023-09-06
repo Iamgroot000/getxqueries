@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:getxqueries/sidedrawer.dart';
+import 'package:getxqueries/signin.dart';
 import 'package:getxqueries/widgets%20methods/widgetsMethods.dart';
 
 import 'animation.dart';
 import 'fabspeedbutton.dart';
+import 'fluttericon.dart';
 import 'grootdictionary.dart';
 import 'imagepicker.dart';
 
@@ -187,33 +189,57 @@ class _snackbarState extends State<snackbar> {
               )
               ,
             ),
-            Container(
-                decoration:BoxDecoration(
-                  //color: Colors.teal,
+            InkWell(
+              onTap: (){
+                Get.to(fluttericonadd());
+              },
+              child: Container(
+                decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3), // Shadow color
-                      spreadRadius: 2, // Spread radius
-                     // blurRadius: 5, // Blur radius
-                      offset: Offset(0, 2), // Offset (horizontal and vertical)
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      // offset: Offset(0, 2),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
-                )
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    'assets/iamge.png', // Replace with the path to your image asset
+                    fit: BoxFit.cover, // This will make the image fit the container
+                  ),
+                ),
+              )
+              ,
             ),
-            Container(
-                decoration:BoxDecoration(
-                 // color: Colors.teal,
+            InkWell(
+              onTap: (){
+                Get.to(MyCustomLoginUI());
+              },
+              child: Container(
+                decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3), // Shadow color
-                      spreadRadius: 2, // Spread radius
-                     // blurRadius: 5, // Blur radius
-                      offset: Offset(0, 2), // Offset (horizontal and vertical)
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      // offset: Offset(0, 2),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
-                )
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    'assets/iamge.png', // Replace with the path to your image asset
+                    fit: BoxFit.cover, // This will make the image fit the container
+                  ),
+                ),
+              )
+              ,
             ),
 
 

@@ -1,3 +1,104 @@
+
+
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getxqueries/getxqueries.dart';
+import 'package:getxqueries/widgets%20methods/widgetsMethods.dart';
+
+
+
+
+class fluttericon extends StatelessWidget {
+  const fluttericon({super.key});
+
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+
+      // home: snackbar(),
+    );
+  }
+
+}
+class fluttericonadd extends StatefulWidget {
+  const fluttericonadd({super.key});
+
+  @override
+  State<fluttericonadd> createState() => _fluttericonaddState();
+}
+
+class _fluttericonaddState extends State<fluttericonadd> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Change your App icon'),
+          backgroundColor: Colors.green,
+        ),
+
+
+        body:
+          Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(10),
+
+                      // height: 150,
+                      // width: 400,
+                      //color: Colors.grey,
+                      child: SingleChildScrollView(
+
+                        child: Container(
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+              //color: Colors.green,
+
+              ),
+
+              ),
+                    child: Text('''  
+                    1. Go to Pub dev_dependencies and add
+                       flutter_launcher_icons: in pubspec.yaml file 
+                    2. Now create assets folder -> create icon folder ->
+                       add icon.png file 
+                    Note: If you are not having a .png image, -
+                      then change the image format
+                    3. Open the Terminal -
+                       flutter pub get- run this command
+                    4.After the command is executed successfully then run-
+                      flutter pub run flutter_launcher_icons
+                    5. After both the commands are executed successfully 
+                       then go
+                       to lib/main.dart file and run the app
+                       flutter run
+                    '''
+                        ),
+
+              ),),),
+              Column(
+                children: [
+                  ElevatedButton(onPressed: (){
+                    Get.bottomSheet(
+                      Container(
+                        // height: double.infinity,
+                        //  width: double.infinity,
+                        color: Colors.blueGrey,
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+
+                          child:Column(
+                            children: [
+                              Text( '''
 name: getxqueries
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
@@ -46,7 +147,6 @@ dependencies:
   side_navigation: ^1.0.4
   image_picker: ^1.0.4
   flutter_speed_dial: ^7.0.0
-  fluttertoast: ^8.2.2
 
 
 
@@ -111,3 +211,27 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+                                 ''' )
+                            ],
+                          )
+                      ),
+                      //barrierColor: Colors.red[50],
+                      //isDismissible: false,
+                      ) );
+                  }, child: Text("Your pubspec.yaml file should look like"))
+                ],
+              )
+            ],
+
+          ),
+
+
+    );
+
+
+
+
+  }
+}
+

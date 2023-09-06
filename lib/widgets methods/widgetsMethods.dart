@@ -33,7 +33,7 @@ OutlinedButton defaultdialog() {
     },);
 }
 
-/// BOTTOMAHEET METHODS
+/// BOTTOMSHEET METHODS
 OutlinedButton bottomsheet() {
   return OutlinedButton(
     child: Text('Bottom Sheet'),
