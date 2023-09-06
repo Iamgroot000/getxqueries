@@ -7,14 +7,16 @@ import 'package:getxqueries/sidedrawer.dart';
 import 'package:getxqueries/widgets%20methods/widgetsMethods.dart';
 
 import 'animation.dart';
+import 'fabspeedbutton.dart';
 import 'grootdictionary.dart';
+import 'imagepicker.dart';
 
 void main() {
   runApp(const snackbar());
 }
 
 
-class MyApp extends StatelessWidget {
+class MyAppget extends StatelessWidget {
   bool status = false; // Initialize the status variable with a default value
 
   /// This widget is the root of your application.
@@ -54,8 +56,22 @@ class _snackbarState extends State<snackbar> {
         ),
         title: Text("I am Groot"),
         actions: [
-          Icon(Icons.grass)
+          IconButton(
+            icon: Icon(Icons.grass),
+            onPressed: () {
+             Get.changeTheme(ThemeData.dark());
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.light),
+            onPressed: () {
+              Get.changeTheme(ThemeData.light());
+            },
+          ),
+
+
         ],
+
         backgroundColor: Colors.green,
       ),
       body: Column(
@@ -68,13 +84,13 @@ class _snackbarState extends State<snackbar> {
               child: Row(
                 children: [
                   SNACKBARMETHOD(),
-                  SizedBox(width: 10,),
+                  SizedBox(width: 25,),
                   Row(
                     children: [
                       defaultdialog(),
                     ],
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(width: 25,),
                   Row(
                     children: [
                       OutlinedButton(
@@ -83,7 +99,7 @@ class _snackbarState extends State<snackbar> {
                           Get.to(grootdictionary());
                         },
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(width: 25,),
                       bottomsheet(),
                     ],
                   ),
@@ -95,129 +111,149 @@ class _snackbarState extends State<snackbar> {
           SizedBox(height: 20,),
           Expanded(
     child:
-    Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-        border: Border.all(
-      color: Colors.green,
-         // width: 10,
-        )),
-    height: 700,
-    width: 400,
-    //color: Colors.grey,
-    child:Column(
-    children: [
-    Expanded(
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          // Adjust the number of columns as needed
-        ),
-        children: [
+    Center(
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+          border: Border.all(
+        color: Colors.green,
+           // width: 10,
+          )),
+      height: 700,
+      width: 400,
+      //color: Colors.grey,
+      child:Column(
+      children: [
+      Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            // Adjust the number of columns as needed
+          ),
+          children: [
+              InkWell(
+                onTap: (){
+                Get.to(GalleryAccess());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                       // offset: Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      'assets/iamge.png', // Replace with the path to your image asset
+                      fit: BoxFit.cover, // This will make the image fit the container
+                    ),
+                  ),
+                )
+                ,
+              ),
             InkWell(
               onTap: (){
-
+                Get.to(MyfabApp());
               },
               child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      // offset: Offset(0, 2),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    'assets/iamge.png', // Replace with the path to your image asset
+                    fit: BoxFit.cover, // This will make the image fit the container
+                  ),
+                ),
+              )
+              ,
+            ),
+            Container(
                 decoration:BoxDecoration(
-                 // color: Colors.transparent,
+                  //color: Colors.teal,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3), // Shadow color
                       spreadRadius: 2, // Spread radius
-                      //blurRadius: 5, // Blur radius
+                     // blurRadius: 5, // Blur radius
                       offset: Offset(0, 2), // Offset (horizontal and vertical)
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
-
-                ),
-                
-                    
-              ),
+                )
             ),
-          Container(
-              decoration:BoxDecoration(
-               // color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3), // Shadow color
-                    spreadRadius: 2, // Spread radius
-                    //blurRadius: 5, // Blur radius
-                    offset: Offset(0, 2), // Offset (horizontal and vertical)
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              )
-          ),
-          Container(
-              decoration:BoxDecoration(
-                //color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3), // Shadow color
-                    spreadRadius: 2, // Spread radius
-                   // blurRadius: 5, // Blur radius
-                    offset: Offset(0, 2), // Offset (horizontal and vertical)
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              )
-          ),
-          Container(
-              decoration:BoxDecoration(
-               // color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3), // Shadow color
-                    spreadRadius: 2, // Spread radius
-                   // blurRadius: 5, // Blur radius
-                    offset: Offset(0, 2), // Offset (horizontal and vertical)
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              )
-          ),
-          Container(
-              decoration:BoxDecoration(
-               // color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3), // Shadow color
-                    spreadRadius: 2, // Spread radius
-                   // blurRadius: 5, // Blur radius
-                    offset: Offset(0, 2), // Offset (horizontal and vertical)
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              )
-          ),
-          Container(
-              decoration:BoxDecoration(
-               // color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3), // Shadow color
-                    spreadRadius: 2, // Spread radius
-                   // blurRadius: 5, // Blur radius
-                    offset: Offset(0, 2), // Offset (horizontal and vertical)
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              )
-          ),
-                ],
-       
+            Container(
+                decoration:BoxDecoration(
+                 // color: Colors.teal,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3), // Shadow color
+                      spreadRadius: 2, // Spread radius
+                     // blurRadius: 5, // Blur radius
+                      offset: Offset(0, 2), // Offset (horizontal and vertical)
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+
+
+            Container(
+                decoration:BoxDecoration(
+                 // color: Colors.teal,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3), // Shadow color
+                      spreadRadius: 2, // Spread radius
+                     // blurRadius: 5, // Blur radius
+                      offset: Offset(0, 2), // Offset (horizontal and vertical)
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+            Container(
+                decoration:BoxDecoration(
+                 // color: Colors.teal,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3), // Shadow color
+                      spreadRadius: 2, // Spread radius
+                     // blurRadius: 5, // Blur radius
+                      offset: Offset(0, 2), // Offset (horizontal and vertical)
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+                  ],
+
+        ),
       ),
-    ),
 
-    ),
+      ),
 
-    ]),
+      ]),
+      ),
     ),),
         SizedBox(height: 20,),
         Column(
